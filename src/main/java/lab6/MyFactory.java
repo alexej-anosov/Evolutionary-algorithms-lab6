@@ -1,4 +1,4 @@
-package lab5;
+package lab6;
 
 import org.uncommons.watchmaker.framework.factories.AbstractCandidateFactory;
 
@@ -12,10 +12,13 @@ public class MyFactory extends AbstractCandidateFactory<double[]> {
         this.dimension = dimension;
     }
 
+    @Override
     public double[] generateRandomCandidate(Random random) {
         double[] solution = new double[dimension];
-        // x from -5.0 to 5.0
-        // your implementation:
+
+        for (int i = 0; i < dimension; i++) {
+            solution[i] = Math.max(-5.0, Math.min(-0.5 + 0.1*random.nextGaussian(), 5));
+        }
 
         return solution;
     }
